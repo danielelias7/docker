@@ -1,0 +1,10 @@
+# Archivos de respaldo
+*~
+.*.kate-swp #kate
+.*.swp #VIM
+
+# Archivo de configuración de la personalización del comportamiento del directorio para KDE
+.directory
+ 
+#backups
+*.tar.gz
