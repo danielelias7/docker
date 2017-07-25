@@ -33,8 +33,8 @@ COPY php.ini /usr/local/etc/php/
 
 #Instalando memcached
 RUN pecl install memcached \
-    && docker-php-ext-enable memcached \
-    && echo "extension=memcached.so" >> /usr/local/etc/php/php.ini
+    && docker-php-ext-enable memcached
+#    && echo "extension=memcached.so" >> /usr/local/etc/php/php.ini
 
 
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
