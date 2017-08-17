@@ -33,11 +33,12 @@ RUN printf "\n" | pecl install apcu-4.0.11 \
 
 # Instalando Paquetes faltantes
 RUN apt-get update \
-    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common \
+    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common libpng-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql intl \
     && docker-php-ext-configure intl \
-    && docker-php-ext-install intl
+    && docker-php-ext-install intl \
+    && docker-php-ext-install gd
 
 COPY php.ini /usr/local/etc/php/
 
