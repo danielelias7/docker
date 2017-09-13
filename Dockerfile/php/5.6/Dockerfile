@@ -33,12 +33,15 @@ RUN printf "\n" | pecl install apcu-4.0.11 \
 
 # Instalando Paquetes faltantes
 RUN apt-get update \
-    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common libpng-dev \
+    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common wget \
+    libpng-dev xvfb fontconfig fontconfig-config fonts-dejavu-core libfontconfig1 libjpeg62-turbo libxrender1 xfonts-75dpi \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql intl \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-    && docker-php-ext-install gd
+    && docker-php-ext-install gd \
+    && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2/wkhtmltox-0.12.2_linux-jessie-amd64.deb \
+    && dpkg --install wkhtmltox-0.12.2_linux-jessie-amd64.deb
 
 COPY php.ini /usr/local/etc/php/
 

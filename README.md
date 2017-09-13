@@ -74,7 +74,7 @@ Para crear el contenedor a partir de la imagen es necesario irse al directorio r
 proyecto que se desea correr y ejecutar el siguiente comando:
 
 ```bash
-docker run -d --name <nombre_contenedor> -p <puerto>:80 -v "$PDW":/var/www/html/ -v "$PDW"/../apache_log/:/var/log/apache2/ <repositorio>:<tag>
+docker run -d --name <nombre_contenedor> -p <puerto>:80 -v "$PWD":/var/www/html/ -v "$PWD"/../apache_log/:/var/log/apache2/ <repositorio>:<tag>
 ```
 
 En donde:
