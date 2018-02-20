@@ -23,7 +23,7 @@ RUN cp /dev/null /etc/apt/sources.list \
     && apt-get update
 
 #Instalando Xdebug
-RUN pecl install xdebug \
+RUN pecl install xdebug-2.5.5 \
     && docker-php-ext-enable xdebug \
     && echo "xdebug.overload_var_dump=On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
@@ -33,12 +33,13 @@ RUN printf "\n" | pecl install apcu-4.0.11 \
 
 # Instalando Paquetes faltantes
 RUN apt-get update \
-    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common wget \
+    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common wget libxml2-dev \
     libpng-dev xvfb fontconfig fontconfig-config fonts-dejavu-core libfontconfig1 libjpeg62-turbo libxrender1 xfonts-75dpi \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql intl \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
+    && docker-php-ext-install soap \
     && docker-php-ext-install gd
 
 RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2/wkhtmltox-0.12.2_linux-jessie-amd64.deb \
