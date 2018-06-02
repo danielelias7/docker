@@ -1,4 +1,4 @@
-FROM php:5-apache
+FROM php:5-apache-jessie
 
 RUN cp /dev/null /etc/apt/sources.list \
     && echo "#Inicio del archivo /etc/apt/sources.list para estaciones de trabajo" >> /etc/apt/sources.list \
@@ -33,7 +33,7 @@ RUN printf "\n" | pecl install apcu-4.0.11 \
 
 # Instalando Paquetes faltantes
 RUN apt-get update \
-    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 php5-sybase freetds-bin freetds-common wget libxml2-dev \
+    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu52 freetds-bin freetds-common wget libxml2-dev \
     libpng-dev xvfb fontconfig fontconfig-config fonts-dejavu-core libfontconfig1 libjpeg62-turbo libxrender1 xfonts-75dpi \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql intl \
@@ -42,6 +42,13 @@ RUN apt-get update \
     && docker-php-ext-install soap \
     && docker-php-ext-install gd
 
+# Instalar php sybase para contectarse a sql server
+RUN apt-get -y --force-yes --no-install-recommends install freetds-dev; \
+	docker-php-ext-configure mssql --with-libdir=/lib/x86_64-linux-gnu/; \
+	docker-php-ext-configure pdo_dblib --with-libdir=/lib/x86_64-linux-gnu/; \
+	docker-php-ext-install -j$(nproc) mssql pdo_dblib;
+
+# Instalacion de WKHTMLTOPDF
 RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2/wkhtmltox-0.12.2_linux-jessie-amd64.deb \
     && dpkg --install wkhtmltox-0.12.2_linux-jessie-amd64.deb
 
