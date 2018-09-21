@@ -1,7 +1,7 @@
-**Repositorio de Imagenes Docker**
-==========================================
-**Ministerio de Salud de El Salvador**
----
+# **Repositorio de Imagenes Docker**
+
+## **Ministerio de Salud de El Salvador**
+
 &nbsp;
 
 Este repositorio tiene por objetivo brindar los archivos **Docerfile**, necesarios
@@ -10,12 +10,10 @@ plantilla oficial utilizada en el desarrollo de sistemas informáticos propiedad
 Ministerio de Salud.
 
 ## **1) Requerimiento de Software.**
----
 Docker 17.x o superior
 
 &nbsp;
 ## **2) Instalación de Docker.**
----
 Los pasos de instalación de docker se describen en el siguiente enlace: [**Clic aquí**][1].
 
 &nbsp;
@@ -24,7 +22,6 @@ Los pasos de instalación de docker se describen en el siguiente enlace: [**Clic
 
 &nbsp;
 ## **3) Creación de la imagen.**
----
 
 A continuación se listan los pasos para la creación de la imagen:
 
@@ -66,7 +63,6 @@ php                 5.6-dtic            f3be9430ca74        5 minutes ago       
 ```
 &nbsp;
 ## **4) Crear contenedor.**
----
 
 ### **4.1) Crear el contenedor**
 
@@ -94,11 +90,11 @@ Ejemplo Pŕactico:
 
 **Para Apache y php 7.0**
 ```bash
-docker run -d --name app1 -p 8085:80 -v "$PWD":/var/www/html/ -v "$PWD"/../apache_log/:/var/log/apache2/ php:7.0-dtic
+docker run -d --name app1 -p 90:80 -v "$PWD":/var/www/html/ -v "$PWD"/../apache_log/:/var/log/apache2/ php:7.0-dtic
 ```
 **Para Apache y php 5.6**
 ```bash
-docker run -d --name app2 -p 8086:80 -v "$PWD":/var/www/html/ -v "$PWD"/../apache_log/:/var/log/apache2/ php:5.6-dtic
+docker run -d --name app2 -p 91:80 -v "$PWD":/var/www/html/ -v "$PWD"/../apache_log/:/var/log/apache2/ php:5.6-dtic
 ```
 
 ### **4.2) Comprobación del contenedor**
@@ -121,7 +117,6 @@ correctamente, si no aparece verificar si se cerró el contenedor al nomás crea
 
 &nbsp;
 ## **5) Acceder al Servidor Web.**
----
 
 Una vez que se ha creado el contenedor, se puede acceder al aplicativo desde el navegador web, solo basta con ejecutar la ruta siguiente: **http://localhost:&lt;puerto>**, en donde **&lt;puerto&gt;** es el número de puerto que se le dio para acceder al contenedor en el paso 4.1.
 
