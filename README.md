@@ -30,7 +30,7 @@ A continuación se listan los pasos para la creación de la imagen:
 Para clonar el proyecto ejecutar el siguiente comando como usuario normal:
 
 ```bash
-git clone https://git.salud.gob.sv/PLANTILLAS/docker.git
+git clone https://codigo.salud.gob.sv/plantillas/docker.git
 ```
 
 ### **3.2) Creación de la Imagen.**
