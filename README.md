@@ -4,7 +4,7 @@
 
 &nbsp;
 
-Este repositorio tiene por objetivo brindar los archivos **Docerfile**, necesarios
+Este repositorio tiene por objetivo brindar los archivos **Dockerfile**, necesarios
 para la creación de las Imágenes Docker, requeridas para el funcionamiento de la
 plantilla oficial utilizada en el desarrollo de sistemas informáticos propiedad del
 Ministerio de Salud.
@@ -16,11 +16,8 @@ Docker 17.x o superior
 ## **2) Instalación de Docker.**
 Los pasos de instalación de docker se describen en el siguiente enlace: [**Clic aquí**][1].
 
-&nbsp;
-*minsal
- comandos según sistema operativo*
 
-&nbsp;
+
 ## **3) Creación de la imagen.**
 
 A continuación se listan los pasos para la creación de la imagen:
@@ -29,11 +26,20 @@ A continuación se listan los pasos para la creación de la imagen:
 
 Para clonar el proyecto ejecutar el siguiente comando como usuario normal:
 
+#### Repositorio Interno (MINSAL)
+
 ```bash
 git clone https://codigo.salud.gob.sv/plantillas/docker.git
 ```
 
+#### Repositorio Público
+
+```bash
+git clone https://github.com/klb-rodriguez/docker.git
+```
+
 ### **3.2) Creación de la Imagen.**
+
 Dirigirse al directorio de la imagen que se desea crear, por ejemplo si se desea crear la imagen
 de apache utilizando php 7.0 ingresar al directorio `Dockerfile/php/7.0`, si en cambio se desea crear la imagen de apache utilizando php 5.6 ingresar al directorio `Dockerfile/php/5.6`, desde el directorio
 raíz del proyecto clonado y ejecutar el siguiente comando.
@@ -118,6 +124,6 @@ correctamente, si no aparece verificar si se cerró el contenedor al nomás crea
 &nbsp;
 ## **5) Acceder al Servidor Web.**
 
-Una vez que se ha creado el contenedor, se puede acceder al aplicativo desde el navegador web, solo basta con ejecutar la ruta siguiente: **http://localhost:&lt;puerto>**, en donde **&lt;puerto&gt;** es el número de puerto que se le dio para acceder al contenedor en el paso 4.1.
+Una vez que se ha creado el contenedor, se puede acceder al aplicativo desde el navegador web, solo basta con ejecutar la ruta siguiente: **http://localhost:puerto**, en donde **puerto** es el número de puerto que se le dio para acceder al contenedor en el paso 4.1.
 
 [1]: https://docs.docker.com/engine/installation/linux/debian/#install-using-the-repository
