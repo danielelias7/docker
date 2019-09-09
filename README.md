@@ -146,9 +146,9 @@ docker ps
 
 Mostrando algo similar a lo siguiente:
 ```bash
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-2e5ce1a467ad        php:7.0-dtic        "docker-php-entryp..."   8 seconds ago       Up 7 seconds       0.0.0.0:8085->80/tcp    app1
-a2c97f7eef06        php:5.6-dtic        "docker-php-entryp..."   8 seconds ago       Up 7 seconds       0.0.0.0:8086->80/tcp    app2
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS             PORTS                 NAMES
+2e5ce1a467ad        php:7.0-dtic        "docker-php-entryp..."   8 seconds ago       Up 7 seconds       0.0.0.0:90->80/tcp    app1
+a2c97f7eef06        php:5.6-dtic        "docker-php-entryp..."   8 seconds ago       Up 7 seconds       0.0.0.0:91->80/tcp    app2
 ```
 
 Si aparece el contenedor con el nombre que se le asigno al crearlo, indica que todo se ha ejecutado
