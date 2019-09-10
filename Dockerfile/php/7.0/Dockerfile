@@ -38,7 +38,10 @@ RUN wget http://packages.couchbase.com/ubuntu/couchbase.key \
     && apt-key add couchbase.key \
     && echo "deb http://packages.couchbase.com/ubuntu stretch stretch/main" > /etc/apt/sources.list.d/couchbase.list \
     && apt update \
-    && apt-get install -y libcouchbase-dev libcouchbase2-bin build-essential
+    && apt-get install -y libcouchbase-dev libcouchbase2-bin build-essential \
+    && pecl install couchbase \
+    && docker-php-ext-enable couchbase \
+    && echo 'extension=couchbase.so' >> /usr/local/etc/php/conf.d/couchbase.ini
 
 #Instalando Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
