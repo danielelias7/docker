@@ -21,14 +21,15 @@ RUN printf "\n" | pecl install apcu-4.0.11 \
 
 # Instalando Paquetes faltantes
 RUN apt-get update \
-    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu57 freetds-bin freetds-common wget libxml2-dev gnupg \
+    && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu57 freetds-bin freetds-common wget libxml2-dev gnupg curl \
     libpng-dev xvfb fontconfig fontconfig-config fonts-dejavu-core libfontconfig1 libjpeg62-turbo libxrender1 xfonts-75dpi \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql intl \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-install soap \
-    && docker-php-ext-install gd
+    && docker-php-ext-install gd \
+    && docker-php-ext-install curl
 
 # Instalar php sybase para contectarse a sql server
 RUN apt-get -y --force-yes --no-install-recommends install freetds-dev; \
@@ -49,8 +50,7 @@ RUN wget http://packages.couchbase.com/ubuntu/couchbase.key \
     && apt update \
     && apt-get install -y libcouchbase-dev libcouchbase2-bin build-essential \
     && pecl install couchbase \
-    && docker-php-ext-enable couchbase \
-    && echo 'extension=couchbase.so' >> /usr/local/etc/php/conf.d/couchbase.ini
+    && docker-php-ext-enable couchbase
 
 #Instalando Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
