@@ -1,4 +1,5 @@
 FROM php:7.2-apache-stretch
+LABEL maintainer "dtic@salud.gob.sv"
 
 RUN cp /dev/null /etc/apt/sources.list \
     && echo "deb http://debian.salud.gob.sv/debian/ stretch main contrib non-free" >> /etc/apt/sources.list \
