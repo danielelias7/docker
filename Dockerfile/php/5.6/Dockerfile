@@ -24,7 +24,7 @@ RUN apt-get update \
     && apt-get install -y libpq-dev zlib1g-dev libicu-dev g++ libicu57 freetds-bin freetds-common wget libxml2-dev gnupg \
     libpng-dev xvfb fontconfig fontconfig-config fonts-dejavu-core libfontconfig1 libjpeg62-turbo libxrender1 xfonts-75dpi \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo pdo_pgsql pgsql intl \
+    && docker-php-ext-install pdo pdo_pgsql pgsql intl zip \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-install soap \
