@@ -173,6 +173,13 @@ El proyecto es de propiedad intelectual del Ministerio de Salud de El Salvador y
                     <a href="mailto:crorozco@salud.gob.sv">crorozco@salud.gob.sv</a>
                 </div>
             </td>
+            <td align="center">
+                <div align="center">
+                    <a href="http://codigo.salud.gob.sv/vmoran"  target="_blank"><img  style="width: 90px; height: 90px;" width="90" src="https://www.gravatar.com/avatar/4f8e2e1f185a6a1903c359e022f11f52?s=180&d=identicon"></a><br />
+                    Vladimir Morán<br/>
+                    <a href="mailto:vmoran@salud.gob.sv">vmoran@salud.gob.sv</a>
+                </div>
+            </td>
         </tr>
     </table>
 </div>

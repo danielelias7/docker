@@ -1,4 +1,5 @@
 FROM php:7.0-apache-stretch
+LABEL maintainer "dtic@salud.gob.sv"
 
 RUN cp /dev/null /etc/apt/sources.list \
     && echo "deb http://debian.salud.gob.sv/debian/ stretch main contrib non-free" >> /etc/apt/sources.list \
@@ -40,8 +41,7 @@ RUN wget http://packages.couchbase.com/ubuntu/couchbase.key \
     && apt update \
     && apt-get install -y libcouchbase-dev libcouchbase2-bin build-essential \
     && pecl install couchbase \
-    && docker-php-ext-enable couchbase \
-    && echo 'extension=couchbase.so' >> /usr/local/etc/php/conf.d/couchbase.ini
+    && docker-php-ext-enable couchbase
 
 #Instalando Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
