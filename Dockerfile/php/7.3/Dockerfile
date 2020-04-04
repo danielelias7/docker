@@ -58,11 +58,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');"
 
 
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
 RUN a2enmod headers
-
-CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
