@@ -12,9 +12,10 @@ RUN cp /dev/null /etc/apt/sources.list \
     && echo "deb-src http://debian.salud.gob.sv/debian-security/ stretch/updates main contrib non-free" >> /etc/apt/sources.list
 
 #Instalando Xdebug
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && echo "xdebug.overload_var_dump=On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+#RUN pecl -d php_suffix=7.0 install xdebug \
+# RUN pear install xdebug-2.5.0.tgz \
+#    && docker-php-ext-enable xdebug \
+#    && echo "xdebug.overload_var_dump=On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 #Instalando apc
 RUN printf "\n" | pecl install apcu \
