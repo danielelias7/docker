@@ -26,10 +26,10 @@ RUN printf "\n" | pecl install apcu \
 # Instalando Paquetes faltantes
 RUN apt-get update \
     && apt-get install -y nano zip libzip-dev libpq-dev zlib1g-dev libicu-dev g++ libxml2-dev memcached libmemcached-dev \
-    wkhtmltopdf freetds-bin freetds-common wget lsb-release gnupg \
+    wkhtmltopdf freetds-bin freetds-common wget lsb-release gnupg libpng-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
-    && docker-php-ext-install intl mbstring zip xml \
+    && docker-php-ext-install intl mbstring xml gd \
     && docker-php-ext-configure zip --with-libzip \
     && docker-php-ext-install zip
 
